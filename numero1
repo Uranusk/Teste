@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+y
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB jogos</title>
+    <Style>
+        body {
+            background-color: rgb(219, 218, 218);
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        header p {
+            font-size: 30px;
+            padding: 10px;
+            color: lightblue;
+            text-shadow: 2px 2px 2px rgb(181, 104, 253);
+            /*eixo X eixo Y borrão*/
+            -webkit-text-stroke-width: 0.7px;
+            -webkit-text-stroke-color: blue;
+        }
+
+        header {
+            height: 50px;
+            width: 100%;
+            padding: 5px px 5px 5px;
+            color: white;
+            background-color: black;
+            box-shadow: 0px 0px 13px 2px rgb(53, 139, 252);
+            /*X Y borrão e completo*/
+            display: flex;
+            /**/
+            justify-content: space-between;
+            /*horizontal*/
+            align-items: center;
+            /*alinha verticalmente*/
+            font-size: 17px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-style: italic;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+
+        #header-div {
+            display: flex;
+
+        }
+
+        #header-ul {
+            display: flex;
+            list-style: none;
+            padding: 20px;
+            color: lightblue
+        }
+
+        #header-li {
+            display: flex;
+            color: lightblue;
+
+        }
+
+
+        #header-pesquisa {
+            height: 80%;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #forma-fieldset {
+            margin: auto;
+            height: 300px;
+            width: 300px;
+            border: none;
+            border-radius: 10%;
+            box-shadow: 5px 5px 5px 4px rgb(131, 128, 128);
+            background-color: rgba(240, 248, 255, 0.829);  
+            text-align: center;
+           
+          
+          
+      
+        }
+
+        #forma-img{
+           height: 150px;
+           width: 150px;
+           border-radius: 10%;
+           
+        
+        }
+        
+        #forma-div{ 
+            bottom: 0px;
+            color: aqua;
+    
+
+        }
+
+        #input-forma {
+            border-style:double;
+            box-shadow: 1px 1px 1px 1px gray;
+            border-color: gray  
+        }
+
+        #forma-botao{
+            background-color: rgb(12, 6, 6);
+            color: lightblue;
+            border-color: rgb(141, 141, 247);
+            border-radius: 5px;
+            transition-duration: 0.5s;
+
+        }
+
+        #forma-botao:hover {
+            background-color: rgb(238, 238, 238);
+            color: black;
+            border-color: rgb(141, 141, 247);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+
+        button {
+            background-color: black;
+            color: lightblue;
+            border-color: rgb(141, 141, 247);
+            border-radius: 1cm;
+            transition-duration: 0.5s;
+
+        }
+
+        button:hover {
+            background-color: rgb(240, 232, 222);
+            color: black;
+            border-color: rgb(141, 141, 247);
+            cursor: pointer;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        footer {
+            height: 30px;
+            width: 100%;
+            color: azure;
+            background-color: rgb(131, 128, 128);
+            bottom: 0;
+            display: flex;
+            position: fixed;
+            justify-content: center;
+            align-items: center;
+        }
+    </Style>
+</head>
+
+<body>
+    <header>
+        <p>CBF Jogos</p>
+        <nav id="header-nav">
+            <div id="header-div">
+                <ul id="header-ul">
+                    <li class="header-li"><a href=""></a>Início</li><br>
+                    <li class="header-li"><a href=""></a>Categorias</li><br>
+                    <li class="header-li"><a href=""></a>Pontuação</li><br>
+                    <li class="header-li"><input id="header-pesquisa" type="text" placeholder="Faça sua pesquisa aqui">
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+    <div>
+        <strong>Para atingir a pontuação nescessária para o jogo, é preciso atingir uma pontuação entre 0 e
+            100:</strong>
+        <ul type="square">
+            <li> pontuação maior que 0 e menor que 20 [Muito ruim] </li>
+            <li> pontuação maior que 20 e menor que 40 [Ruim]</li>
+            <li> pontuação maior que 40 e menor que 60 [Normal]</li>
+            <li> pontuação maior que 60 e menor que 80 [Bom]</li>
+            <li> pontuação maior que 80 e menor que 100 [Muito bom]</li>
+        </ul>
+        <br><br>
+    </div>
+
+
+    <form class="forma">
+        <fieldset id="forma-fieldset">     
+            <img  id="forma-img" src="joystickcbf8.jpeg" alt="Foto controle de videogame">     
+            <div id="forma-div">
+                <br> Digite:
+                <input type="text" id="dadosid" name="formulário" placeholder="Digite seus pontos" required>
+                <input id="forma-botao" type="button" value="Enviar" onclick="calculo()">
+            </div>
+        </fieldset>
+    </form>
+
+    <div id="pontosid">
+
+        <p id="pontuaçaoid"> Sua pontuação é: </p>nula
+
+
+        <footer>
+            Desenvolvido por AllanCZ &copy;copywriter
+        </footer> <br>
+
+        <script>
+            function calculo() {
+                var pontuacao = document.getElementById('pontuaçaoid')
+                var pontos = document.getElementById('pontosid')
+                var dados = document.getElementById('dadosid')
+                var p1 = Number(dados.value)//para indicar que são di tipo números
+ 
+
+                
+
+                if (p1 >= 1 && p1 < 20) {
+                    pontuacao.style.color = 'darkred'
+                    pontuacao.innerHTML = (`Sua pontuação é<strong>:</strong> ${p1} [muito ruim]`)
+
+                }
+                else if (p1 >= 20 && p1 < 40) {
+                    pontuacao.style.color = 'red'
+                    pontuacao.innerHTML = (`Sua pontuação é:<strong>:</strong> ${p1} [ruim] `)
+                }
+                else if (p1 >= 40 && p1 < 60) {
+                    pontuacao.style.color = 'orange'
+                    pontuacao.innerHTML = (`Sua pontuação é<strong>:</strong> ${p1} [mediana] `)
+
+                }
+                else if (p1 >= 60 && p1 < 80) {
+                    pontuacao.style.color = 'green'
+                    pontuacao.innerHTML = (`Sua pontuação é<strong>:</strong> ${p1} [boa]`)
+
+                }
+                else if (p1 >= 80 && p1 < 100) {
+                    pontuacao.style.color = 'darkgreen'
+                    pontuacao.innerHTML = (`Sua pontuação é<strong>:</strong> ${p1} [muito boa]`)
+                }
+
+                else if (p1 == 100) {
+                    pontuacao.style.color = 'darkgreen'
+                    pontuacao.innerHTML = (`Sua pontuação é<strong>:</strong> ${p1} [muito boa]. <br> 
+                    <strong><i>Parabéns você atingiu a pontuação máxima!!!</i><strong>`)
+                }
+              
+               else if (p1 < 0 || p1 > 100){
+                alert("[ERRO] O número selecionado não consta na tabela de pontuações. Por favor digite novamente.")
+               }
+               else  {
+                    alert("[ERRO] Nada inserido. Por favor digite sua pontuação.")
+               }
+            }   
+        </script>
+</body>
+
+</html>
